@@ -1,6 +1,7 @@
 package com.example.banka_2_mobile.ui.navigation
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ShowChart
 import androidx.compose.material.icons.filled.AccountBalanceWallet
 import androidx.compose.material.icons.filled.CreditCard
 import androidx.compose.material.icons.filled.Receipt
@@ -82,25 +83,25 @@ object Routes {
 
 private val bottomNavItems = listOf(
     BottomNavItem(
-        route = Routes.TRANSACTIONS,
-        label = "Transakcije",
-        icon = Icons.Filled.Receipt
+        route = Routes.SECURITIES,
+        label = "Berza",
+        icon = Icons.AutoMirrored.Filled.ShowChart
     ),
     BottomNavItem(
-        route = Routes.CARDS,
-        label = "Kartice",
-        icon = Icons.Filled.CreditCard
+        route = Routes.PORTFOLIO,
+        label = "Portfolio",
+        icon = Icons.Filled.WorkOutline
     ),
     BottomNavItem(
         route = Routes.HOME,
-        label = "Pocetna",
+        label = "Početna",
         icon = Icons.Filled.AccountBalanceWallet,
         isCenter = true
     ),
     BottomNavItem(
-        route = Routes.EXCHANGE,
-        label = "Menjacnica",
-        icon = Icons.Filled.TrendingUp
+        route = Routes.MY_ORDERS,
+        label = "Nalozi",
+        icon = Icons.Filled.Receipt
     ),
     BottomNavItem(
         route = Routes.OTP,
@@ -109,8 +110,43 @@ private val bottomNavItems = listOf(
     )
 )
 
+/*
+//  TODO: REMOVE
+private val bottomNavItems = listOf(
+    BottomNavItem(
+        route = Routes.SECURITIES,
+        label = "Berza",
+        icon = Icons.AutoMirrored.Filled.ShowChart
+    ),
+    BottomNavItem(
+        route = Routes.PORTFOLIO,
+        label = "Portfolio",
+        icon = Icons.Filled.WorkOutline
+    ),
+    BottomNavItem(
+        route = Routes.HOME,
+        label = "Početna",
+        icon = Icons.Filled.AccountBalanceWallet,
+        isCenter = true
+    ),
+    BottomNavItem(
+        route = Routes.MY_ORDERS,
+        label = "Nalozi",
+        icon = Icons.Filled.Receipt
+    ),
+    BottomNavItem(
+        route = Routes.OTP,
+        label = "OTP",
+        icon = Icons.Filled.Shield
+    )
+)
+*/
+
 // TODO: Activate this list when Celina 3 screens are fully implemented.
 //       Replace `bottomNavItems` usage in NavGraph() with `bottomNavItemsCelina3`.
+//  DONE
+/*
+//  Ukloni ovaj blok
 @Suppress("unused")
 private val bottomNavItemsCelina3 = listOf(
     BottomNavItem(
@@ -140,10 +176,12 @@ private val bottomNavItemsCelina3 = listOf(
         icon = Icons.Filled.Shield
     )
 )
+*/
 
 // Routes that show the bottom nav bar
 // TODO: When Celina 3 tabs are activated (see BottomNavBar TODO), add
 //       Routes.SECURITIES, Routes.PORTFOLIO, Routes.MY_ORDERS here.
+//  DONE
 private val mainRoutes = setOf(
     Routes.HOME,
     Routes.TRANSACTIONS,
