@@ -50,6 +50,16 @@ data class Account(
 
 // ─── Payment / Transaction Models ──────────────────────────
 
+data class CreatePaymentRequest(
+    val fromAccountNumber: String,
+    val toAccountNumber: String,
+    val amount: Double,
+    val recipientName: String,
+    val paymentCode: String = "289",
+    val paymentPurpose: String,
+    val otpCode: String
+)
+
 data class Payment(
     val id: Long,
     val orderNumber: String? = null,
@@ -73,6 +83,15 @@ data class PaginatedResponse<T>(
     val totalPages: Int = 0,
     val number: Int = 0,
     val size: Int = 0
+)
+
+// ─── Transfer Models ──────────────────────────────────────
+
+data class CreateTransferRequest(
+    val fromAccountNumber: String,
+    val toAccountNumber: String,
+    val amount: Double,
+    val otpCode: String
 )
 
 // ─── Card Models ───────────────────────────────────────────

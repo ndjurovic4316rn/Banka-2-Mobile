@@ -4,6 +4,8 @@ import com.example.banka_2_mobile.data.model.Account
 import com.example.banka_2_mobile.data.model.CalculateExchangeResponse
 import com.example.banka_2_mobile.data.model.CardResponse
 import com.example.banka_2_mobile.data.model.CreateOrderRequest
+import com.example.banka_2_mobile.data.model.CreatePaymentRequest
+import com.example.banka_2_mobile.data.model.CreateTransferRequest
 import com.example.banka_2_mobile.data.model.ExchangeRate
 import com.example.banka_2_mobile.data.model.Listing
 import com.example.banka_2_mobile.data.model.ListingDailyPrice
@@ -51,6 +53,14 @@ interface ApiService {
         @Query("page") page: Int = 0,
         @Query("size") size: Int = 20
     ): Response<PaginatedResponse<Payment>>
+
+    @POST("payments")
+    suspend fun createPayment(@Body request: CreatePaymentRequest): Response<Any>
+
+    // ─── Transfers ────────────────────────────────────────
+
+    @POST("transfers/internal")
+    suspend fun createTransfer(@Body request: CreateTransferRequest): Response<Any>
 
     // ─── Cards ─────────────────────────────────────────
 

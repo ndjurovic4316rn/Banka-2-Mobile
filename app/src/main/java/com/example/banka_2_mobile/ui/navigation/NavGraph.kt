@@ -40,10 +40,12 @@ import com.example.banka_2_mobile.ui.login.LoginScreen
 import com.example.banka_2_mobile.ui.orders.CreateOrderScreen
 import com.example.banka_2_mobile.ui.orders.MyOrdersScreen
 import com.example.banka_2_mobile.ui.otp.OtpScreen
+import com.example.banka_2_mobile.ui.payments.NewPaymentScreen
 import com.example.banka_2_mobile.ui.portfolio.PortfolioScreen
 import com.example.banka_2_mobile.ui.securities.SecuritiesScreen
 import com.example.banka_2_mobile.ui.securities.SecurityDetailScreen
 import com.example.banka_2_mobile.ui.transactions.TransactionsScreen
+import com.example.banka_2_mobile.ui.transfers.TransferScreen
 
 object Routes {
     const val LOGIN = "login"
@@ -52,6 +54,8 @@ object Routes {
     const val CARDS = "cards"
     const val EXCHANGE = "exchange"
     const val OTP = "otp"
+    const val NEW_PAYMENT = "new_payment"
+    const val NEW_TRANSFER = "new_transfer"
 
     // ─── Celina 3: Berza routes ──────────────────────────
     const val SECURITIES = "securities"
@@ -287,15 +291,26 @@ fun NavGraph() {
 
             // Quick-action screens accessible from HomeScreen
             composable(Routes.TRANSACTIONS) {
-                TransactionsScreen(onLogout = navigateToLogin)
+                TransactionsScreen(onLogout = navigateToLogin, onBack = { navController.popBackStack() })
             }
 
             composable(Routes.CARDS) {
-                CardsScreen(onLogout = navigateToLogin)
+                CardsScreen(onLogout = navigateToLogin, onBack = { navController.popBackStack() })
             }
 
             composable(Routes.EXCHANGE) {
-                ExchangeScreen(onLogout = navigateToLogin)
+                ExchangeScreen(onLogout = navigateToLogin, onBack = { navController.popBackStack() })
+            }
+
+            composable(Routes.NEW_PAYMENT) {
+                NewPaymentScreen(onBack = { navController.popBackStack() })
+            }
+
+            composable(Routes.NEW_TRANSFER) {
+                TransferScreen(
+                    onBack = { navController.popBackStack() },
+                    onLogout = navigateToLogin
+                )
             }
 
             composable(Routes.OTP) {

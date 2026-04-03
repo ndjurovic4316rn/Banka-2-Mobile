@@ -196,7 +196,7 @@ fun HomeScreen(
                             ) {
                                 Column {
                                     Text(
-                                        text = "Dobrodosli, $displayName \uD83D\uDC4B",
+                                        text = displayName,
                                         fontSize = 24.sp,
                                         fontWeight = FontWeight.Bold,
                                         color = Color.White
@@ -422,8 +422,8 @@ private data class QuickAction(
 @Composable
 private fun QuickActionsRow(onNavigate: (String) -> Unit) {
     val actions = listOf(
-        QuickAction("Placanja", Icons.AutoMirrored.Filled.Send, "transactions"),
-        QuickAction("Prenos", Icons.Filled.SwapHoriz, "exchange"),
+        QuickAction("Placanja", Icons.AutoMirrored.Filled.Send, "new_payment"),
+        QuickAction("Prenos", Icons.Filled.SwapHoriz, "new_transfer"),
         QuickAction("Menjacnica", Icons.Filled.CurrencyExchange, "exchange"),
         QuickAction("Kartice", Icons.Filled.CreditCard, "cards")
     )
